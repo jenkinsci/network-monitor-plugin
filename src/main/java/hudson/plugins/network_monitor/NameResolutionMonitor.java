@@ -23,7 +23,8 @@ public class NameResolutionMonitor extends NodeMonitor {
 
     public static final AbstractNodeMonitorDescriptor<String> DESCRIPTOR = new AbstractNodeMonitorDescriptor<String>(NameResolutionMonitor.class) {
         protected String monitor(Computer c) throws IOException, InterruptedException {
-            // TODO: define UI
+            // TODO: update core to allow NodeMonitors to contribute config.
+            // TODO: define UI by using it
             return c.getChannel().call(new MonitorTask(Arrays.asList("www.sun.com","www.google.com","kohsuke.sfbay")));
         }
 
