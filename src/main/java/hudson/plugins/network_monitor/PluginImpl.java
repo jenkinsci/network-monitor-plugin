@@ -9,6 +9,6 @@ import hudson.node_monitors.NodeMonitor;
 public class PluginImpl extends Plugin {
     @Override
     public void start() throws Exception {
-        NodeMonitor.LIST.add(NameResolutionMonitor.DESCRIPTOR);
+        NodeMonitor.LIST.load(NameResolutionMonitor.class);
     }
 }

@@ -4,22 +4,19 @@ import hudson.model.Computer;
 import hudson.node_monitors.AbstractNodeMonitorDescriptor;
 import hudson.node_monitors.NodeMonitor;
 import hudson.remoting.Callable;
-import org.kohsuke.stapler.DataBoundConstructor;
+import net.sf.json.JSONObject;
+import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author Kohsuke Kawaguchi
  */
 public class NameResolutionMonitor extends NodeMonitor {
-    @DataBoundConstructor
-    public NameResolutionMonitor() {
-    }
-
     public AbstractNodeMonitorDescriptor<String> getDescriptor() {
         return DESCRIPTOR;
     }
@@ -28,6 +25,11 @@ public class NameResolutionMonitor extends NodeMonitor {
         protected String monitor(Computer c) throws IOException, InterruptedException {
             // TODO: define UI
             return c.getChannel().call(new MonitorTask(Arrays.asList("www.sun.com","www.google.com","kohsuke.sfbay")));
+        }
+
+        @Override
+        public NameResolutionMonitor newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return new NameResolutionMonitor();
         }
 
         public String getDisplayName() {
@@ -61,4 +63,7 @@ public class NameResolutionMonitor extends NodeMonitor {
         private static final long serialVersionUID = 1L;
     }
 
+    static {
+        LIST.add(DESCRIPTOR);
+    }
 }
