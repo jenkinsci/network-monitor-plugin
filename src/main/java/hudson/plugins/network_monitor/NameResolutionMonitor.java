@@ -1,5 +1,6 @@
 package hudson.plugins.network_monitor;
 
+import hudson.Extension;
 import hudson.model.Computer;
 import hudson.node_monitors.AbstractNodeMonitorDescriptor;
 import hudson.node_monitors.NodeMonitor;
@@ -17,10 +18,12 @@ import java.util.List;
  * @author Kohsuke Kawaguchi
  */
 public class NameResolutionMonitor extends NodeMonitor {
+    @Override
     public AbstractNodeMonitorDescriptor<String> getDescriptor() {
         return DESCRIPTOR;
     }
 
+    @Extension
     public static final AbstractNodeMonitorDescriptor<String> DESCRIPTOR = new AbstractNodeMonitorDescriptor<String>(NameResolutionMonitor.class) {
         protected String monitor(Computer c) throws IOException, InterruptedException {
             // TODO: update core to allow NodeMonitors to contribute config.
@@ -62,9 +65,5 @@ public class NameResolutionMonitor extends NodeMonitor {
         }
 
         private static final long serialVersionUID = 1L;
-    }
-
-    static {
-        LIST.add(DESCRIPTOR);
     }
 }
