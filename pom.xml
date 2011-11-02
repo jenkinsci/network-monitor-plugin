@@ -46,7 +46,7 @@
   <licenses>
     <license>
       <name>The MIT license</name>
-      <url>https://github.com/jenkinsci/console-column-plugin/raw/master/LICENSE.txt</url>
+      <url>https://github.com/jenkinsci/network-monitor-plugin/raw/master/LICENSE.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -65,9 +65,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/jenkinsci/console-column-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:jenkinsci/console-column-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/console-column-plugin</url>
+    <connection>scm:git:git://github.com/jenkinsci/network-monitor-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/network-monitor-plugin.git</developerConnection>
+    <url>https://github.com/jenkinsci/network-monitor-plugin</url>
   </scm>
 
   <repositories>
@@ -91,7 +91,7 @@
     </repository>
     <site>
       <id>github-project-site</id>
-      <url>gitsite:git@github.com/jenkinsci/console-column-plugin</url>
+      <url>gitsite:git@github.com/jenkinsci/network-monitor-plugin</url>
     </site>
   </distributionManagement>
 
