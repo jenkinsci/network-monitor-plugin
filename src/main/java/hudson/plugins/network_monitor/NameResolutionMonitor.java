@@ -28,7 +28,7 @@ public class NameResolutionMonitor extends NodeMonitor {
         protected String monitor(Computer c) throws IOException, InterruptedException {
             // TODO: update core to allow NodeMonitors to contribute config.
             // TODO: define UI by using it
-            return c.getChannel().call(new MonitorTask(Arrays.asList("www.sun.com","www.google.com","kohsuke.sfbay")));
+            return c.getChannel().call(new MonitorTask(Arrays.asList("www.sun.com","www.google.com")));
         }
 
         @Override
